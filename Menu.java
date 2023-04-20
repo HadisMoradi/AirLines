@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Menue {
+public class Menu {
     Scanner inpout = new Scanner(System.in);
 
     public static void sign(){
@@ -13,8 +13,8 @@ public class Menue {
         String password;
         String password1;
 
-         final String ADMIN_USERNAME = "Hadis Moradi";
-         final String  ADMIN_PASSWORD = "40141193";
+         final String ADMIN_USERNAME = "Hadis";
+         final String  ADMIN_PASSWORD = "12345";
         Scanner inpout = new Scanner(System.in);
         num = inpout.nextInt();
         switch (num){
@@ -24,10 +24,10 @@ public class Menue {
                 System.out.println("Please enter your password:");
                 password = inpout.next();
                 if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)){
-                    Menue.admin();
+                    Menu.admin();
                 }
                 else{
-                    Menue.passenger();
+                    Menu.passenger();
                 }
                 break;
             case 2:
@@ -39,7 +39,7 @@ public class Menue {
                     System.out.println("Please enter your password again:");
                     password1 = inpout.next();
                 }while (!password.equals(password1));
-                Menue.passenger();
+                Menu.passenger();
                 break;
             case 0:
                 break;
