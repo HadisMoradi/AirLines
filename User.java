@@ -1,53 +1,67 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
-public class Flight {
+public class User {
+    private String userName;
+    private String password;
+    private ArrayList <String> userList = new ArrayList <>();
 
+    public String getUserName() {
+        return userName;
+    }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public ArrayList<String> getUserList() {
+        return userList;
+    }
 
+    public void setUserList(ArrayList<String> userList) {
+        this.userList = userList;
+    }
 
+    public User() {
+        defaultUser();
+    }
+    public void defaultUser(){
+        userList.add("user1");
+        userList.add("pass1");
+        userList.add("user2");
+        userList.add("pass2");
+        userList.add("user3");
+        userList.add("pass3");
+        userList.add("user4");
+        userList.add("pass4");
+        userList.add("user5");
+        userList.add("pass5");
+        userList.add("user6");
+        userList.add("pass6");
 
-
-
-
-//    public static List flight(){
-//
-//        return list;
-//    }
-//    public static void flight(){
-//        Ticket ticket = new Ticket( input.next() , input.next() , input.next() ,
-//                input.next() ,input.next() , input.nextInt() , input.nextInt() );
-//        System.out.println("FlightId:" + ticket.getFlightId() +  "\nOrigin:" + ticket.getOrigin() + "\nDestination:" + ticket.getDestination()
-//                + "\nDate:" + ticket.getDate() + "\nTime:" + ticket.getTime() + "\nPrice:" + ticket.getPrice() + "\nSeats:" + ticket.getSeats());
-////        System.out.println(ticket.getFlightId());
-//    }
-
-
-
-
-//    private ArrayList <String> flightId = new ArrayList<String>();
-//
-//    public void add(String flightId) {
-//        this.flightId.add (flightId);
-//    }
-//    public String getFlightId(int i ) {
-//        for (int i= 0 ; i<flightId.size() ; i++){
-//            System.out.println("fuck");
-//        }
-//        this.flightId.remove(i);
-//        System.out.println(this.flightId.get(i));
-//        return flightId.get(i);
-//    }
-
-//        String s = Main.input.next();
-//        flight.newFlightId(s);
-//        System.out.println(flight.getFlightId(0));
-//        Passenger[] passenger = new Passenger[585];
-//    public void mmd(String flightId) {
-//        this.flightId = flightId;
-//    }//        Flight flight = new Flight();
+    }
+    public void addUser(String userName , String password){
+        this.userList.add(userName);
+        this.userList.add(password);
+        System.out.println(userList);
+    }
+    public void changePassword(String userName , String password){
+    int index = this.userList.indexOf(userName);
+    this.userList.set(index+1 , password);
+    }
+    public boolean findUser(String userName , String password) {
+        for (int i = 0; i < this.userList.size(); i+=2) {
+            if (userList.get(i).equals(userName) && userList.get(i+1).equals(password)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
