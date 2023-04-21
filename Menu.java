@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-    Scanner inpout = new Scanner(System.in);
+    static Scanner inpout = new Scanner(System.in);
 
     public static void sign(){
         System.out.println("""
@@ -13,9 +14,8 @@ public class Menu {
         String password;
         String password1;
 
-         final String ADMIN_USERNAME = "Hadis";
-         final String  ADMIN_PASSWORD = "12345";
-        Scanner inpout = new Scanner(System.in);
+         final String ADMIN_USERNAME = "a";
+         final String  ADMIN_PASSWORD = "1";
         num = inpout.nextInt();
         switch (num){
             case 1:
@@ -42,6 +42,7 @@ public class Menu {
                 Menu.passenger();
                 break;
             case 0:
+                Menu.sign();
                 break;
         }
     }
@@ -54,7 +55,6 @@ public class Menu {
                 <4>flight schedules
                 <0>sing out""");
         int num;
-        Scanner inpout = new Scanner(System.in);
         num = inpout.nextInt();
         switch (num){
             case 1:
@@ -70,6 +70,7 @@ public class Menu {
                 Admin.flightSchedules();
                 break;
             case 0:
+                Menu.sign();
                 break;
         }
     }
@@ -84,7 +85,6 @@ public class Menu {
                 <6>add charge
                 <0>sing out""");
         int num;
-        Scanner inpout = new Scanner(System.in);
         num = inpout.nextInt();
         switch (num){
             case 1:
@@ -106,6 +106,7 @@ public class Menu {
                 Passenger.addCharge();
                 break;
             case 0:
+                Menu.sign();
                 break;
         }
     }
