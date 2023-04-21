@@ -1,9 +1,8 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
     static Scanner inpout = new Scanner(System.in);
-
+    static User user = new User();
     public static void sign(){
         System.out.println("""
                 Please select to login
@@ -17,20 +16,23 @@ public class Menu {
          final String ADMIN_USERNAME = "a";
          final String  ADMIN_PASSWORD = "1";
         num = inpout.nextInt();
-        switch (num){
-            case 1:
+        switch (num) {
+            case 1 -> {
                 System.out.println("Please enter your username:");
                 username = inpout.next();
                 System.out.println("Please enter your password:");
                 password = inpout.next();
-                if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)){
+                if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
                     Menu.admin();
+                } else if (user.findUser(username, password)) {
+                    System.out.println(username + password);
+                    Menu.passenger(username, password);
+                } else {
+                    System.out.println("You are a soul");
+                    Menu.sign();
                 }
-                else{
-                    Menu.passenger();
-                }
-                break;
-            case 2:
+            }
+            case 2 -> {
                 System.out.println("Please choose a username:");
                 username = inpout.next();
                 System.out.println("Please choose a password:");
@@ -38,12 +40,11 @@ public class Menu {
                 do {
                     System.out.println("Please enter your password again:");
                     password1 = inpout.next();
-                }while (!password.equals(password1));
-                Menu.passenger();
-                break;
-            case 0:
-                Menu.sign();
-                break;
+                } while (!password.equals(password1));
+                user.addUser(username, password);
+                Menu.passenger(username, password);
+            }
+            case 0 -> Menu.sign();
         }
     }
 
@@ -75,7 +76,7 @@ public class Menu {
         }
     }
 
-    public static void passenger(){
+    public static void passenger(String userName , String password){
         System.out.println("""
                 <1>change password
                 <2>search flight tickets
@@ -88,7 +89,7 @@ public class Menu {
         num = inpout.nextInt();
         switch (num){
             case 1:
-                Passenger.changePassword();
+                Passenger.changePassword(userName ,password);
                 break;
             case 2:
                 Passenger.searchFlightTickets();
