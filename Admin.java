@@ -5,6 +5,7 @@ public class Admin {
     static Scanner input = new Scanner(System.in);
     static Ticket ticket = new Ticket();
     public static void add(){
+
         System.out.print("Type the Flight Id: ");
         String S1 = input.next();
         System.out.print("Type the Origin: ");
@@ -25,14 +26,19 @@ public class Admin {
     }
 
     public static void update(){
+        System.out.println("Please enter your flight Id:\t");
+        ticket.updateFlight(input.next());
         Menu.admin();
     }
 
     public static void remove(){
+        System.out.print("Please enter flight Id:\t");
+        ticket.removeFlight(input.next());
         Menu.admin();
     }
 
     public static void flightSchedules(){
+        ticket.flightSchedulesFlight();
         Menu.admin();
     }
 
