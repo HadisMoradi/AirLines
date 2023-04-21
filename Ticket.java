@@ -12,6 +12,10 @@ public class Ticket {
     private ArrayList<Double> price = new ArrayList<>();
     private ArrayList<Integer> seats = new ArrayList<>();
 
+    public Ticket() {
+        defaultTicket();
+    }
+
     public void addFlight(String flightId, String origin, String destination,
                           String date, String time, Double price, Integer seats) {
         this.flightId.add(flightId);
@@ -102,5 +106,36 @@ public class Ticket {
         for (int i = 0 ; i < this.flightId.size() ; i++) {
             printTicket(i);
         }
+    }
+    public void defaultTicket(){
+
+        addFlight("QW_vg_12" , "Yard" , "Tehran" , "2023.4.18" ,"12:30" , 500000.0, 10);
+        addFlight("QW_de_13" , "Shiraz" , "Tehran" , "2023.4.25" ,"12:30" , 90000.0, 4);
+        addFlight("QW_ty_14" , "Mashhad" , "Gilian" , "2023.5.10" ,"04:45" , 350000.0, 20);
+        addFlight("QV_nm_15" , "Yard" , "Tabriz" , "2023.5.15" ,"10:00" , 200000.0, 6);
+        addFlight("QV_li_16" , "Azerbaijan" , "Sari" , "2023.5.29" ,"03:15" , 150000.0, 13);
+        addFlight("QV_pz_17" , "Esfehan" , "Kish" , "2023.6.03" ,"00:00" , 900000.0, 1);
+    }
+    public void researchTicketOfFlightID(String str){
+        printTicket(str);
+    }
+    public void researchTicketOfOrigin(String str){
+
+        printTicket(this.origin.indexOf(str));
+    }
+    public void researchTicketOfDestination(String str){
+        printTicket(this.destination.indexOf(str));
+    }
+    public void researchTicketOfDate(String str){
+        printTicket(this.date.indexOf(str));
+    }
+    public void researchTicketOfTime(String str){
+        printTicket(this.time.indexOf(str));
+    }
+    public void researchTicketOfPrice(double str){
+        printTicket(this.price.indexOf(str));
+    }
+    public void researchTicketOfSeats(int st){
+        printTicket(this.seats.indexOf(st));
     }
 }
